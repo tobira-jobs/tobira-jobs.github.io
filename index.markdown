@@ -1,32 +1,10 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
----
 layout: home
 ---
 
 <style>
-/* H1: 太い左線で強調 */
-h1 {
-  border-left: 8px solid #2c3e50;
-  padding: 0.5rem 1rem;
-  background: #f8f9fa;
-  color: #2c3e50;
-}
-
-/* H2: 青い下線 */
-h2 {
-  border-bottom: 3px solid #007bff;
-  padding-bottom: 5px;
-  color: #333;
-}
-
-/* H3: 点線の下線 */
-h3 {
-  border-bottom: 2px dotted #007bff;
-  padding-bottom: 5px;
-}
+/* ここにCSS（今のままでOKです！） */
 </style>
 
-# ここから本文
+# シゴトのトビラの裏方
+...
