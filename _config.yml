@@ -11,3 +11,6 @@ theme: minima
 
 # プラグインを一旦すべて空にする（これが大事です！）
 plugins: []
+
+# 自分で作ったスタイルを適用する
+custom_css: /assets/css/style.scss
