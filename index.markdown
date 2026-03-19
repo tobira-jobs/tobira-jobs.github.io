@@ -2,9 +2,7 @@
 layout: home
 ---
 
-<style>
-/* ここにCSS（今のままでOKです！） */
-</style>
+{% include my-style.html %}
 
 # シゴトのトビラの裏方
 ...
