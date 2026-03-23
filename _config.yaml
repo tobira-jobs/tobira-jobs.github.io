@@ -1,2 +1,3 @@
 title: "Tobira Jobs"
-remote_theme: pages-themes/cayman
+description: "HugoからJekyllへ移行した技術ブログ"
+remote_theme: pages-themes/architect
