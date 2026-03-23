@@ -1,6 +1,6 @@
 ---
-layout: default
-title: Home
+layout:default
+title: tobira jobs
 ---
 ## シゴトのトビラの情報作成の裏話を書きますね
 githubを活用していろんな話題を扱いたいと考えてます。
