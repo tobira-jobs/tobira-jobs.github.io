@@ -1,5 +1,5 @@
 ---
-layout:default
+layout: default
 title: tobira jobs
 ---
 ## シゴトのトビラのヒミツの裏話
