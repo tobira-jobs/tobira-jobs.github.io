@@ -1,6 +1,6 @@
 ---
 layout:default
-title: GitHub Pagesへいらっしゃい!
+title: welcome to GitHub Pages
 date: 2026-03-23 10:55:00 +0900
 categories: jekyll update
 ---
