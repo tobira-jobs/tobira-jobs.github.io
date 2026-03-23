@@ -12,13 +12,3 @@ HugoからJekyllに移行しました。
 
 - 移行日: 2026年3月23日
 - 環境: GitHub.dev + Edge
-
-## 最近の投稿
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.date | date: "%Y-%m-%d" }} - {{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
-
