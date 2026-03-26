@@ -7,5 +7,5 @@ categories: experiment
 
 ## 画像をupしてみる実験
 
-![ハンドリフトのネコ(.gif)](../images/cat-hand-lift.gif)
-![リフトのネコ(.gif)](../images/cat-lift.png)
+![ハンドリフトのネコ(.gif)](/images/cat-hand-lift.gif)
+![リフトのネコ(.png)](images/cat-lift-operate.png)
