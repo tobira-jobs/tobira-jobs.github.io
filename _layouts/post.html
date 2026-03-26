@@ -8,3 +8,10 @@ layout: default
 <p style="text-align: center;">
   <a href="{{ '/' | relative_url }}" class="btn" style="color: #159957; border: 1px solid #159957; padding: 10px 20px;">🏠 ホームに戻る</a>
 </p>
+
+{% if page.mermaid %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+</script>
+{% endif %}
