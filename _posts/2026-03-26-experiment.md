@@ -1,6 +1,6 @@
 ---
 layout: post
-title: geminiからコピペ
+title: 未来日指定投稿の前の本日分
 date: 2026-03-26 10:00:00 +0900
 categories: experiment
 ---
