@@ -7,9 +7,9 @@ categories: jekyll update
 
 # はじめての投稿
 
-新しいblogサイトを構築します。
-HugoからJekyllに移行しました。
-これからはGitHub.dev（ブラウザ）だけで更新していきます！
+新しいblogサイトを構築します。  
+HugoからJekyllに移行しました。  
+これからはGitHub.dev（ブラウザ）だけで更新していきます！  
 
 - 移行日: 2026年3月23日
 - 環境: GitHub.dev + Edge
