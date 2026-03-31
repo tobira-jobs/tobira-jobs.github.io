@@ -3,6 +3,7 @@ layout: post
 title: claudeのchatをsakura-editor経由でコピペ
 date: 2026-03-26 13:00:00 +0900
 categories: copipe
+published: false
 ---
 
 * TOC
