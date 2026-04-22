@@ -7,7 +7,7 @@ published: false
 ---
 
 
-# はじめての投稿
+## はじめての投稿
 
 新しいblogサイトを構築します。  
 HugoからJekyllに移行しました。  
