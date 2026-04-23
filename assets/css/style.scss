@@ -7,7 +7,7 @@
   background-image: url("{{ site.baseurl }}/assets/img/shigoto.png"), 
                     linear-gradient(120deg, #155799, #159957);
   background-repeat: no-repeat;
-  background-position: center 2rem; /* 上から2rem（約32px）の位置に配置 */
+  background-position: 5% 2rem; /* 上から2rem（約32px）の位置に配置 */
   background-size: auto 80px;      /* 高さを80pxに固定してアスペクト比を維持 */
   
   /* ロゴを表示した分、タイトルの位置を下げるための調整 */
