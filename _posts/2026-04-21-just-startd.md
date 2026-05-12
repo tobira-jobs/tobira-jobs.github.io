@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 改めて再スタート
-date: 2026-04-22 10:55:00 +0900
+date: 2026-04-21 10:55:00 +0900
 categories: future up
 ---
 
