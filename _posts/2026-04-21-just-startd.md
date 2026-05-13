@@ -21,12 +21,3 @@ categories: future up
 
 まあ気の抜けたようなことしか書かないので気楽に読んでください。  
 それじゃ、行ってみよう！
-
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="3729970e-7588-492c-a85a-0e1b780ebbb0"
-  data-page-id="{{ PAGE_ID }}"
-  data-page-url="{{ PAGE_URL }}"
-  data-page-title="{{ PAGE_TITLE }}"
-></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>

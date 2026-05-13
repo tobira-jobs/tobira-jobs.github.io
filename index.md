@@ -13,3 +13,13 @@ githubを活用していろんな話題を扱いたいと考えてます。
     </li>
   {% endfor %}
 </ul>
+
+
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="3729970e-7588-492c-a85a-0e1b780ebbb0"
+  data-page-id="{{ 3729970e-7588-492c-a85a-0e1b780ebbb0 }}"
+  data-page-url="{{ https://tobira-jobs.github.io/ }}"
+  data-page-title="{{ HOME }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
