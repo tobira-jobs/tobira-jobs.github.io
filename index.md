@@ -17,7 +17,7 @@ githubを活用していろんな話題を扱いたいと考えてます。
   {% endfor %}
 </ul>
 
-
+### コメント(ご自由にお書きください。)
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
   data-app-id="3729970e-7588-492c-a85a-0e1b780ebbb0"
