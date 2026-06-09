@@ -1,7 +1,6 @@
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // Jekyll が出力する .language-mermaid を mermaid 用に変換
     document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
       const container = document.createElement("div");
       container.classList.add("mermaid");
