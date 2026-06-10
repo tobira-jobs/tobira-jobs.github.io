@@ -64,11 +64,11 @@ Get-Content test.txt　
 gc test.txt　
 
 ログ監視なら　
-gc log.txt -Wait　
+gc log.txt -Wait　・・ Linuxのtail -f みたいなもの  
+:  
+:  
+:  
 
-Linuxの　
-tail -f　
-みたいなもの。　
 
 のように長ーい文章を惜しげもなく出してくれます。当然知らないことも多いのでちょっと気になった文をコピペして  
 これは？？  
