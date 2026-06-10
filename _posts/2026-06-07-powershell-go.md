@@ -43,28 +43,25 @@ categories: scripts
    
 ### パイプでどんなふうにpowershellを働かせるのかな？・・ (260609)
 
-この間のps｜ogvを振り返ってみましょう。  
+ - この間のps｜ogvを振り返ってみましょう。  
 ps というコマンドレット(命令)とogvって言うのをパイプ(｜)でつないでましたね。
-このpsは正式にはGet-Processで現在windowsの中で稼働しているプロセス(裏方含めたプログラム)を列挙してくれる命令です。このようにpowershellには現在のPCの様々な情報を得るための命令がたくさん入ってます。　
-黒い画面で Get-Command Get*と入れてenterするとずらずらっと出てきます。はっきり言って多すぎて困るくらいです。でも我々にはAIという強い見方がいるのでchatGptとかで「powershellのget-xxxってコマンドレットで初心者が使うと便利なのは？」なんて聞くと  
+ - このpsは正式にはGet-Processで現在windowsの中で稼働しているプロセス(裏方含めたプログラム)を列挙してくれる命令です。このようにpowershellには現在のPCの様々な情報を得るための命令がたくさん入ってます。　
+ - 黒い画面で Get-Command Get*と入れてenterするとずらずらっと出てきます。はっきり言って多すぎて困るくらいです。でも我々にはAIという強い見方がいるのでchatGptとかで「powershellのget-xxxってコマンドレットで初心者が使うと便利なのは？」なんて聞くと  
 
-まず毎日使う5選　
-Get-ChildItem　
-または　
-gci　
-ls　
+まず毎日使う5選  
+Get-ChildItem  または gci ls  
+ - これはファイル一覧　
+  gci *.xlsx  
+  gci -Recurse *.fsx  
+  Get-Content
 
-ファイル一覧。　
-gci *.xlsx　
-gci -Recurse *.fsx　
-Get-Content　
+ - ファイルを見る。  
+  Get-Content test.txt　
+　gc test.txt　
 
-ファイルを見る。　
-Get-Content test.txt　
-gc test.txt　
+ - ログ監視なら　
+  gc log.txt -Wait　・・ Linuxのtail -f みたいなもの  
 
-ログ監視なら　
-gc log.txt -Wait　・・ Linuxのtail -f みたいなもの  
 :  
 :  
 :  
