@@ -84,3 +84,39 @@ CrossDeviceResume     9072 55586816 0.62
   みたいなのが現れませんか！つまり任意の選択した行を出力できるんです。  そしてこれをさらにパイプでつないで次の処理を行うことができますね。 
   すぐに思いつくのはexcelへの出力、次はpowershellでexcelを取り込んだり出力したりすることを説明します。
 
+### execl入出力を出来るようにする ・・ (260611)
+
+まずはpowershellをターミナルで起動してください。  
+そこで  
+```
+Install-Module -Name ImportExcel -Scope CurrentUser -Force
+```
+と打ち込んでください。
+モジュール名は ImportExcelって言うみたいですね。  
+1分も経たないうちに終わったみたい。  
+
+```
+Get-Module -ListAvailable ImportExcel
+```
+と入れてみてこんな風な出力がでたらOK！
+```
+ModuleType Version    PreRelease Name                                PSEdition ExportedCommands
+---------- -------    ---------- ----                                --------- ----------------
+Script     7.8.10                ImportExcel                         Desk      {Add-ConditionalFormatting, Add-ExcelCh…
+```
+さっそく使ってみましょう
+ImportExcelモジュールは外部のexcelの読み込みにも出力にも使えますがまだ読むべきexcelファイルが現在のフォルダに無いと思いますのでちょっと作ってみましょう。
+
+```
+$data = @(
+    [pscustomobject]@{ Name = "Alice"; Score = 90 }
+    [pscustomobject]@{ Name = "Bob";   Score = 75 }
+)
+
+$data | Export-Excel test.xlsx -AutoSize
+```
+ちょっと長いですが上記のように打ち込めば  
+test.xlsxが作成されます。上下を2回に分けて入力してもok!   
+ls と入れてenterでフォルダ内のファイルリストがずらずらと出ますがtest.xlsxがあれば大成功！  
+ここで start test.xlsxとしてやれば出来立てのexcelファイルが開きます。  
+次回は別のexcelファイルを読んで加工するスクリプトを作ってみましょう。
