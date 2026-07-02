@@ -145,4 +145,218 @@ ls と入れてenterでフォルダ内のファイルリストがずらずらと
 
 今後、このページでももっと例を挙げていきたいと思いますが  
 「プログラムって難しいんでしょ！」って言われる方にもぜひ使っていただきたい便利なツールなのでそのあたりも含め乞うご期待！
- 
+
+### Geminiにちょっとした入門記事を作ってもらったよ！ ・・ (260702)
+
+PowerShell（pwsh）の世界へようこそ！  
+このテキストは、PowerShellの「一番おいしいところ」であるデータの読み込み・加工・出力（パイプライン処理）を、初心者でも手を動かしながら楽しく学べるロードマップです。
+
+難解なプログラムの文法は後回しにして、まずは「コマンドをつなぐだけで仕事が終わる快感」を体験しましょう！
+
+📄 1: PowerShellって何？＆ 魔法の土台
+PowerShellは、Windows/Mac/Linuxで動く強力な自動化ツールです。
+最大の特徴は、すべてのデータが「文字（テキスト）」ではなく、「オブジェクト（データの塊）」として流れる点です。
+
+まずはPowerShellを起動し、最も重要な「動詞-名詞」のルールと、コマンドを探すコマンドを覚えましょう。
+
+PowerShell
+ 1. 現在の場所（ディレクトリ）のファイル一覧を見る
+Get-ChildItem
+
+ 2. コマンドを探す（「CSV」に関係するコマンドを見つける）
+Get-Command *Csv*
+💡 コラム：コマンドレット（Cmdlet）とは？
+PowerShellのコマンドは「Get-ChildItem」のように「動詞-名詞」の形をしています。これをコマンドレットと呼びます。
+
+📄 2: データの入力① 〜最強のデータ形式「JSON」〜
+現代のITで最もよく使われるデータ形式がJSON（ジェイソン）です。
+PowerShellなら、インターネット上のデータやJSONファイルを、1行で「中身を自由に扱えるデータ」に変換できます。
+
+JSONファイルを読み込む
+まずは、デスクトップなどに member.json というファイルを作ってみましょう（文字コードはUTF-8）。
+
+```JSON
+[
+  {"Name": "Alice", "Age": 25, "Role": "Developer"},
+  {"Name": "Bob", "Age": 30, "Role": "Designer"},
+  {"Name": "Charlie", "Age": 22, "Role": "Developer"}
+]
+```
+これをPowerShellで読み込みます。
+
+```PowerShell
+# JSONを読み込んで自動で「データ（オブジェクト）」に変換
+$users = Get-Content ./member.json | ConvertFrom-Json
+
+# 画面に表示してみる
+$users
+```
+
+📄 3: データの入力② 〜ビジネスの王道「CSV」〜
+ExcelでもおなじみのCSVファイル。PowerShellはCSVの処理が超得意です。
+先ほどのメンバーリストをCSV（member.csv）にしたと仮定して、読み込んでみましょう。
+
+```Plaintext
+Name,Age,Role
+Alice,25,Developer
+Bob,30,Designer
+Charlie,22,Developer
+```
+
+CSVファイルを読み込む
+```PowerShell
+# CSVを読み込む（Shift-JISの場合は -Encoding Default をつける）
+$csvData = Import-Csv ./member.csv
+
+# 読み込んだ中身を確認
+$csvData
+```
+これだけで、ただのカンマ区切りのテキストが、PowerShell内で扱える綺麗なテーブルデータになります。
+
+📄 4: データの入力③ 〜みんな大好き「Excel」〜
+実は、標準のPowerShellはExcelを直接読めません。しかし、世界中で使われている「ImportExcel」という拡張機能（モジュール）を入れれば、Excelアプリが入っていなくても爆速で読み書きできます！
+
+魔法の準備（最初の一回だけ）
+```PowerShell
+# Excelを扱うための拡張機能をインストール（確認画面が出たら「Y」）
+Install-Module ImportExcel -Scope CurrentUser
+Excelファイルを読み込む
+member.xlsx というExcelファイル（シート名は「Sheet1」）があるとします。
+```
+
+```PowerShell
+# Excelを1行で読み込む！
+$excelData = Import-Excel ./member.xlsx -WorksheetName "Sheet1"
+
+$excelData
+```
+
+📄 5: パイプライン（|）という革命
+PowerShellの一番の楽しさはパイプライン（|）にあります。
+パイプラインとは、「左側のコマンドの実行結果を、右側のコマンドにそのまま引き渡す」仕組みです。
+
+バケツリレーをイメージしてください。
+
+Import-Csv がデータを1件ずつ取り出す
+
+パイプ | を通って次のコマンドへ流す
+
+次のコマンドがそれを加工する
+
+わざわざ一度ファイルに保存したり、複雑な変数を使ったりする必要はありません。
+
+```PowerShell
+# CSVを読み込んで、そのまま画面に綺麗に表示する（まだ通過させるだけ！）
+Import-Csv ./member.csv | Out-Host
+```
+
+📄 6: 中間処理① 〜必要なデータだけ選ぶ（Select / Where）〜
+データがパイプを流れてきたら、次はお好みに合わせて「加工（中間処理）」します。
+
+1. 必要な「列（プロパティ）」だけを選ぶ：Select-Object（略称：sel）
+「名前と役職だけが欲しい。年齢は不要！」という場合。
+
+```PowerShell
+# NameとRoleの列だけを抽出
+Import-Csv ./member.csv | Select-Object Name, Role
+```
+
+```PowerShell
+# 略称（エイリアス）を使って短く書く
+Import-Csv ./member.csv | sel Name, Role
+```
+
+2. 条件に合う「行」だけを絞り込む：Where-Object（略称：where）
+「Developer（開発者）だけを抽出したい！」という場合。
+
+```PowerShell
+# $_ は「今パイプラインを流れているそのデータ」を意味します
+Import-Csv ./member.csv | Where-Object { $_.Role -eq "Developer" }
+```
+
+```PowerShell
+# 略称を使って短く書く（-eq は Equal、つまり「＝」のこと）
+Import-Csv ./member.csv | where Role -eq "Developer"
+```
+
+📄 7: 中間処理② 〜超強力なループ処理 ForEach-Object（%）〜
+流れてきたデータ1件ずつに対して、「メールを送る」「フォルダを作る」「文字を加工する」といった独自の処理をしたいときは、ForEach-Object（略称：%）を使います。
+
+全員の名前の後ろに「さん」を付けて挨拶する
+
+```PowerShell
+# % { } の中で、流れてきたデータを自由にいじれる
+Import-Csv ./member.csv | ForEach-Object {
+    Write-Host "こんにちは、$($_.Name) さん！"
+}
+```
+
+```PowerShell
+# 略称「%」を使って爆速で書く
+Import-Csv ./member.csv | % { "名前: " + $_.Name }
+```
+
+💡 ポイント
+$($_.Name) のように、$() で囲むと、文字列の中でオブジェクトの中身を安全に展開できます。
+
+📄 8: 出力系① 〜画面で遊ぶ！神コマンド Out-GridView〜
+加工したデータをファイルに保存する前に、画面で確認したいですよね。
+そんな時に全PowerShellユーザーが愛してやまないのが Out-GridView（略称：ogv）です。
+
+データを別ウィンドウのグリッド表示にする
+```PowerShell
+# CSVを読み込んでグリッドビューに投げる
+Import-Csv ./member.csv | Out-GridView
+```
+
+```PowerShell
+# 略称で書く
+Import-Csv ./member.csv | ogv
+```
+
+これを実行すると、Excelのようなきれいな別ウィンドウが開きます。
+なんと、その画面上で文字の検索や並び替え、フィルタリングがマウス操作で可能になります！デバッグや簡易ツールに最適です。
+
+📄 9: 出力系② 〜成果物を保存する（CSV & Excel）〜
+さあ、いよいよ最終段階です。加工したデータをファイルに出力して、上司や同僚に提出しましょう！
+
+1. CSVに保存する（Export-Csv）
+```PowerShell
+# Developerだけを絞り込んで、新規CSVとして保存
+Import-Csv ./member.csv | 
+    where Role -eq "Developer" | 
+    Export-Csv ./developers.csv -NoTypeInformation -Encoding UTF8
+```
+
+2. Excelに保存する（Export-Excel）
+Page 4で入れた ImportExcel モジュールがあれば、出力も一瞬です。グラフやテーブル装飾も自動で付けられます！
+
+```PowerShell
+# データを読み込み、Excelとして出力（自動でテーブル装飾付き！）
+Import-Csv ./member.csv | 
+    Export-Excel ./output.xlsx -TableStyle Medium2 -AutoSize
+```
+
+これだけで、プロが作ったような綺麗なExcelファイルが完成します。
+
+📄 10: 【総まとめ】これぞPowerShell！最強の1行レシピ
+お疲れ様でした！最後に、これまで学んだ知識をすべて詰め込んだ「実戦向け1行コマンド（ワンライナー）」を作ってみましょう。
+
+📌 ミッション
+「CSVから読み込んだデータから、25歳以上の人だけを絞り込み、名前と役職のExcelファイルを作って、同時に画面でも確認する」
+
+```PowerShell
+Import-Csv ./member.csv | where Age -ge 25 | sel Name, Role | Out-GridView -PassThru | Export-Excel ./result.xlsx -AutoSize
+```
+
+🔍 一言解説
+
+where Age -ge 25：25歳以上（Greater than or Equal）で絞り込み
+
+sel Name, Role：必要な列だけ選んで
+
+Out-GridView -PassThru：画面で確認し、OKなら「Enter」で次に流す！
+
+Export-Excel ...：最終成果物のExcelが完成！
+
+PowerShellは、まるでレゴブロックのようにコマンドを繋ぐだけで、強力なプログラムが作れます。ぜひ身の回りのファイルをたくさんいじって、楽しんでみてください！
