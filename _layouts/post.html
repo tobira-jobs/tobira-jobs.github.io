@@ -7,22 +7,18 @@ layout: default
 <hr>
 <p style="text-align: center;">
 
-  {% if page.back_url %}
-
-    <a href="{{ page.back_url | relative_url }}"
-       class="btn"
-       style="color: #159957; border: 1px solid #159957;">
-      {{ page.back_label | default: "戻る" }}
-    </a>
-
+  {% if page.series %}
+  <a href="{{ '/' | append: page.series | append: '/' | relative_url }}"
+     class="btn"
+     style="color: #159957; border: 1px solid #159957;">
+    📖 目次に戻る
+  </a>
   {% else %}
-
-    <a href="{{ '/' | relative_url }}"
-       class="btn"
-       style="color: #159957; border: 1px solid #159957;">
-      🏠 ホームに戻る
-    </a>
-
+  <a href="{{ '/' | relative_url }}"
+     class="btn"
+     style="color: #159957; border: 1px solid #159957;">
+    🏠 ホームに戻る
+  </a>
   {% endif %}
 
 </p>
