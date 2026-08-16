@@ -27,7 +27,7 @@ categories: discover
 
 <hr>
 
-<a href="pwsh/00.html">鈴鹿黒窓小噺 第0話～ 黒窓って妖しい？ ～</a>
+<a href="00.html">鈴鹿黒窓小噺 第0話～ 黒窓って妖しい？ ～</a>
 
 
 
