@@ -20,7 +20,7 @@ githubを活用していろんな話題を扱いたいと考えてます。
 {% assign sorted_posts = site.posts | sort: "last_modified_at" | reverse %}
 
 <ul>
-  {% for post in site.posts %}
+  {% for post in sorted_posts %}
     <li>
       <a href="{{ post.url }}">最終更新日: {{ post.last_modified_at | default: post.date | date: "%Y-%m-%d" }} - {{ post.title }}
       </a>
