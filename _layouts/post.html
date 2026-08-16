@@ -6,5 +6,23 @@ layout: default
 
 <hr>
 <p style="text-align: center;">
-  <a href="{{ '/' | relative_url }}" class="btn" style="color: #159957; border: 1px solid #159957; padding: 10px 20px;">🏠 ホームに戻る</a>
+
+  {% if page.back_url %}
+
+    <a href="{{ page.back_url | relative_url }}"
+       class="btn"
+       style="color: #159957; border: 1px solid #159957;">
+      {{ page.back_label | default: "戻る" }}
+    </a>
+
+  {% else %}
+
+    <a href="{{ '/' | relative_url }}"
+       class="btn"
+       style="color: #159957; border: 1px solid #159957;">
+      🏠 ホームに戻る
+    </a>
+
+  {% endif %}
+
 </p>
