@@ -16,6 +16,9 @@ githubを活用していろんな話題を扱いたいと考えてます。
    他のページのご意見もありましたらこのページのコメント欄にお書き下さい。
 
 ## 最近の投稿
+
+{% assign sorted_posts = site.posts | sort: "last_modified_at" | reverse %}
+
 <ul>
   {% for post in site.posts %}
     <li>
