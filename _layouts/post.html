@@ -6,20 +6,20 @@ layout: default
 
 <hr>
 
+{% if page.series %}
 <p style="text-align: center;">
-
-  {% if page.series %}
   <a href="{{ '/' | append: page.series | append: '/' | relative_url }}"
      class="btn"
      style="color: #159957; border: 1px solid #159957;">
     📖 目次に戻る
   </a>
-  {% else %}
+</p>
+{% else %}
+<p style="text-align: center;">
   <a href="{{ '/' | relative_url }}"
      class="btn"
      style="color: #159957; border: 1px solid #159957;">
     🏠 ホームに戻る
   </a>
-  {% endif %}
-
 </p>
+{% endif %}
