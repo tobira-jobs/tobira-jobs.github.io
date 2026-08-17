@@ -8,9 +8,7 @@ layout: default
 
 {% if page.series %}
 
-  {% assign series_pages = site.pages
-    | where: "series", page.series
-    | sort: "order" %}
+ {% assign series_pages = site.pages | where: "series", page.series | sort: "order" %}
 
   {% assign current_index = nil %}
 
